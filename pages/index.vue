@@ -8,8 +8,8 @@
       <h2 class="subtitle">
         Nuxt.js project
       </h2>
-      <ul>
-        <li v-for="post in posts" class="post">
+      <ul class="post-list">
+        <li v-for="post in posts" class="post-list-item">
           <article>
             <h2 class="subtitle">{{ post.title.rendered }}</h2>
             <div v-html="post.content.rendered"></div>
@@ -22,17 +22,11 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import axios from 'axios'
+import wp from '~/lib/wp'
 
 export default {
   async asyncData ({ params }) {
-    return axios.get('http://local.wordpress.dev/wp-json/wp/v2/posts')
-      .then(json => {
-        return { posts: json.data }
-      })
-      .catch(e => {
-        console.log(e)
-      })
+    return wp.posts()
   },
   components: {
     Logo
@@ -70,7 +64,11 @@ export default {
   padding-top: 15px;
 }
 
-.post {
+.post-list {
+  padding: 0;
+}
+
+.post-list-item {
   list-style: none;
   text-align: left;
 }
