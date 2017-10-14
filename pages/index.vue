@@ -1,27 +1,13 @@
 <template>
   <section class="container">
     <div>
-      <logo/>
-      <h1 class="title">
-        nuxt-wp
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <ul class="post-list">
-        <li v-for="post in posts" class="post-list-item">
-          <article>
-            <h2 class="subtitle">{{ post.title.rendered }}</h2>
-            <div v-html="post.content.rendered"></div>
-          </article>
-        </li>
-      </ul>
+      <post-list :posts="posts" />
     </div>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import PostList from '~/components/PostList.vue'
 import wp from '~/lib/wp'
 
 export default {
@@ -29,7 +15,7 @@ export default {
     return wp.posts()
   },
   components: {
-    Logo
+    'post-list': PostList
   }
 }
 </script>
