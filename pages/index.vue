@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import PostList from '~/components/PostList.vue'
+import PostList from '~/components/posts/PostList.vue'
 import wp from '~/lib/wp'
 
 export default {

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import PostExcerpt from '~/components/PostExcerpt.vue'
+import PostExcerpt from './PostExcerpt.vue'
 
 export default {
   props: ['posts'],
