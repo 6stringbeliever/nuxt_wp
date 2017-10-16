@@ -16,3 +16,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.post-list {
+  padding: 0;
+}
+
+.post-list-item {
+  list-style: none;
+}
+</style>

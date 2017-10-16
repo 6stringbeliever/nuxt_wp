@@ -1,4 +1,5 @@
 module.exports = {
+  css: ['@/assets/css/style.scss'],
   /*
   ** Headers of the page
   */
