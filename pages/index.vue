@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <post-list :posts="posts" />
+      <PostList :posts="posts" />
     </div>
   </section>
 </template>
@@ -15,12 +15,12 @@ export default {
     return wp.posts()
   },
   components: {
-    'post-list': PostList
+    PostList
   }
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   margin: 1rem auto;
   width: 90%;
