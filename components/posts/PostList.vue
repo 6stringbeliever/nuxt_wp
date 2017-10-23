@@ -10,7 +10,9 @@
 import PostExcerpt from './PostExcerpt.vue'
 
 export default {
-  props: ['posts'],
+  props: {
+    posts: { type: Object }
+  },
   components: {
     PostExcerpt
   }

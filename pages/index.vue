@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .container {
   margin: 1rem auto;
   width: 90%;

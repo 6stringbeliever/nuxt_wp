@@ -7,6 +7,8 @@
 
 <script>
 export default {
-  props: ['post']
+  props: {
+    post: { type: Object }
+  }
 }
 </script>
