@@ -11,7 +11,7 @@ import PostExcerpt from './PostExcerpt.vue'
 
 export default {
   props: {
-    posts: { type: Object }
+    posts: { type: Array }
   },
   components: {
     PostExcerpt
