@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <header>
-      <h1>{{ site_data.name }}</h1>
+      <h1><nuxt-link to="/">{{ site_data.name }}</nuxt-link></h1>
       <p>{{ site_data.description }}</p>
     </header>
     <div>
@@ -18,6 +18,11 @@ export default {
   async asyncData ({ params }) {
     return Promise.all([wp.posts(), wp.siteData()])
       .then(vals => vals.reduce((inp, val) => ({ ...inp, ...val }), {}))
+  },
+  head () {
+    return {
+      title: this.site_data.name || 'Home'
+    }
   },
   components: {
     PostList
