@@ -1,13 +1,9 @@
 <template>
-  <section class="container">
-    <header>
-      <h1><nuxt-link to="/">{{ site_data.name }}</nuxt-link></h1>
-      <p>{{ site_data.description }}</p>
-    </header>
+  <main class="container">
     <div>
       <PostList :posts="posts" />
     </div>
-  </section>
+  </main>
 </template>
 
 <script>
@@ -16,12 +12,11 @@ import wp from '~/lib/wp'
 
 export default {
   async asyncData ({ params }) {
-    return Promise.all([wp.posts(), wp.siteData()])
-      .then(vals => vals.reduce((inp, val) => ({ ...inp, ...val }), {}))
+    return wp.posts()
   },
   head () {
     return {
-      title: this.site_data.name || 'Home'
+      title: `${this.$store.state.site_data.name} | Home`
     }
   },
   components: {
