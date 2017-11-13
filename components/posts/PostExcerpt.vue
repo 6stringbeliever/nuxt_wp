@@ -1,6 +1,6 @@
 <template>
   <article>
-    <h2 class="subtitle">{{ post.title.rendered }}</h2>
+    <h2 class="subtitle"><nuxt-link :to="`/posts/${post.slug}`">{{ post.title.rendered }}</nuxt-link></h2>
     <div v-html="post.excerpt.rendered"></div>
   </article>
 </template>
