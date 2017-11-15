@@ -11,7 +11,9 @@ export const types = {
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      site_data: {}
+      site_data: {},
+      post_list: [],
+      current_post: {}
     },
     mutations: {
       [types.SITE_DATA_UPDATE] (state, payload) {

@@ -1,24 +1,30 @@
 <template>
   <main class="container">
     <div>
-      <PostList :posts="posts" />
+      <PostList :posts="post_list" />
     </div>
   </main>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import PostList from '~/components/posts/PostList.vue'
 import wp from '~/lib/wp'
+import { types } from '~/store'
 
 export default {
-  async asyncData ({ params }) {
+  fetch ({ store, params }) {
     return wp.posts()
+      .then(json => {
+        store.commit(types.POST_LIST_UPDATE, json.posts)
+      })
   },
   head () {
     return {
-      title: `${this.$store.state.site_data.name} | Home`
+      title: `${this.site_data.name} | Home`
     }
   },
+  computed: mapState(['post_list', 'site_data']),
   components: {
     PostList
   }
