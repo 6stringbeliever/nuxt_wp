@@ -1,14 +1,12 @@
 <template>
-  <main class="container">
-    <article>
-      <h2 class="subtitle">{{ current_post.title.rendered }}</h2>
-      <div v-html="current_post.content.rendered"></div>
-    </article>
+  <main class="single-post-container main-contents">
+    <PostContents :post="current_post" mode="full" />
   </main>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import PostContents from '~/components/posts/PostContents'
 import wp from '~/lib/wp'
 import { types } from '~/store'
 
@@ -24,6 +22,22 @@ export default {
         store.commit(types.CURRENT_POST_UPDATE, json.posts[0])
       })
   },
-  computed: mapState(['current_post'])
+  computed: mapState(['site_data', 'current_post']),
+  components: {
+    PostContents
+  },
+  head () {
+    return {
+      title: `${this.site_data.name} | ${this.current_post.title.rendered}`
+    }
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+.single-post-container {
+  margin: -3.5rem auto 0 auto;
+  width: 90%;
+  max-width: 780px;
+}
+</style>
