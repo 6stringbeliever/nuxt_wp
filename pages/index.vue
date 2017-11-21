@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main class="container main-contents">
     <div>
       <PostList :posts="post_list" />
     </div>
@@ -30,11 +30,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.container {
-  margin: 1rem auto;
-  width: 90%;
-  max-width: 900px;
-}
-</style>
