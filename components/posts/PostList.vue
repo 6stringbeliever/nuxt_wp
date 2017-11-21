@@ -1,30 +1,33 @@
 <template>
   <ul class="post-list">
-    <li v-for="post in posts" :key="post.id" class="post-list-item">
-      <PostExcerpt :post="post" />
+    <li v-for="post in posts" :key="post.id">
+      <PostContents :post="post" mode="excerpt" />
     </li>
   </ul>
 </template>
 
 <script>
-import PostExcerpt from './PostExcerpt.vue'
+import PostContents from '~/components/posts/PostContents'
 
 export default {
   props: {
     posts: { type: Array }
   },
   components: {
-    PostExcerpt
+    PostContents
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .post-list {
   padding: 0;
-}
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
 
-.post-list-item {
-  list-style: none;
+  li {
+    list-style: none;
+  }
 }
 </style>
