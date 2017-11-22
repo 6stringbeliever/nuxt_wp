@@ -5,7 +5,7 @@
       <span v-else>{{ post.title.rendered }}</span>
     </h2>
     <div v-if="mode === 'full'" class="post-meta">
-      <p>{{ post.date }}</p>
+      <p>{{ post.date_gmt | output-date }}</p>
       <p>by {{ authors[post.author].name }}</p>
     </div>
     <div class="post-body" v-html="post.excerpt.rendered" v-if="mode === 'excerpt'"></div>

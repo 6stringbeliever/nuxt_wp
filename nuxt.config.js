@@ -24,7 +24,8 @@ module.exports = {
   */
   build: {
     vendor: [
-      'axios'
+      'axios',
+      'date-fns'
     ],
     /*
     ** Run ESLint on save
@@ -39,5 +40,6 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  plugins: ['~/plugins/vue-filter-date']
 }
